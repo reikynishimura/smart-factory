@@ -39,3 +39,11 @@ Route::get('/working_sequences', [WorkingSequenceController::class, 'index']);
 Route::post('/working_sequences/masterwi', [WorkingSequenceController::class, 'masterwi']);
 Route::put('/working_sequences/{id}', [WorkingSequenceController::class, 'update']);
 Route::delete('/working_sequences/{id}', [WorkingSequenceController::class, 'delete']);
+
+
+Route::get('/working_sequences/export-excel', [WorkingSequenceController::class, 'exportExcel'])->name('working_sequences.exportExcel');
+Route::get('/working_sequences/export-pdf', [WorkingSequenceController::class, 'exportPdf'])->name('working_sequences.exportPdf');
+
+
+Route::get('/projects/export-excel', [ProjectController::class, 'exportExcel'])->name('projects.exportExcel');
+Route::get('/projects/export-pdf', [ProjectController::class, 'exportPdf'])->name('projects.exportPdf');

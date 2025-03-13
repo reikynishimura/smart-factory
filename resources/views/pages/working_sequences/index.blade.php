@@ -23,8 +23,12 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <div>
                         <button class="btn btn-light border" data-toggle="modal" data-target="#createWorkingSequenceModal"><i class="fas fa-plus"></i> Create</button>
-                        <a href="#" class="btn btn-light border"><i class="fas fa-file-export"></i> Export</a>
-                        <a href="#" class="btn btn-light border"><i class="fas fa-print"></i> Print</a>
+                        <a href="{{ route('working_sequences.exportExcel') }}" class="btn btn-light border">
+                            <i class="fas fa-file-excel"></i> Export Excel
+                        </a>
+                        <a href="{{ route('working_sequences.exportPdf') }}" class="btn btn-light border">
+                            <i class="fas fa-file-pdf"></i> Export PDF
+                        </a>
                         <a href="{{ url()->current() }}" class="btn btn-light border"><i class="fas fa-sync-alt"></i> Reload</a>
                     </div>
                     <div class="d-flex justify-content-end">

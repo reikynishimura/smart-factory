@@ -7,14 +7,16 @@ use App\Models\MultiWI;
 use App\Models\WorkingSequence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\WorkingSequenceExport;
 
 class WorkingSequenceController extends Controller
 {
     public function index() {
         $workingSequences = WorkingSequence::with('multiWi')->get();
         $multiwis = MultiWI::all(); 
-
-    // return view('pages.working_sequences.index', compact('working_sequences', 'multiwis'));
+        
     return view('pages.working_sequences.index', compact('workingSequences','multiwis' ));
     }    
     
@@ -93,4 +95,17 @@ class WorkingSequenceController extends Controller
 
         return redirect('/working_sequences');
     }
+
+    public function exportExcel()
+    {
+        return Excel::download(new WorkingSequenceExport, 'working_sequences.xlsx');
+    }
+
+    public function exportPdf()
+    {
+        $workingSequences = WorkingSequence::all();
+        $pdf = Pdf::loadView('pages.working_sequences.pdf', compact('workingSequences'));
+        return $pdf->download('pages.working_sequences.pdf');
+    }
+
 }

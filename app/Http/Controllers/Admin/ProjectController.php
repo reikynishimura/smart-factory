@@ -7,12 +7,15 @@ use App\Models\Status;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\ProjectExport;
 
 class ProjectController extends Controller
 {
     public function index() {
         $projects = Project::with('status')->get();
-        $statuses = Status::all(); // Tambahin ini buat dropdown status
+        $statuses = Status::all(); 
     
         return view('pages.projects.index', compact('projects', 'statuses'));
     }
@@ -91,5 +94,17 @@ class ProjectController extends Controller
         $product->delete();
 
         return redirect('/projects');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ProjectExport, 'projects.xlsx');
+    }
+
+    public function exportPdf()
+    {
+        $projects = Project::all();
+        $pdf = Pdf::loadView('pages.projects.pdf', compact('projects'));
+        return $pdf->download('pages.projects.pdf');
     }
 }
