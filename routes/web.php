@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\WorkingSequenceController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\UserController;
 
 
 Route::view('/register', 'pages.auth.register')->name('register');
@@ -35,10 +36,17 @@ Route::delete('/projects/{id}', [ProjectController::class, 'delete']);
 
 
 Route::get('/working_sequences', [WorkingSequenceController::class, 'index'])->name('working_sequences.index');
-Route::get('/working_sequences', [WorkingSequenceController::class, 'index']);
+// Route::get('/working_sequences', [WorkingSequenceController::class, 'index']);
 Route::post('/working_sequences/masterwi', [WorkingSequenceController::class, 'masterwi']);
 Route::put('/working_sequences/{id}', [WorkingSequenceController::class, 'update']);
 Route::delete('/working_sequences/{id}', [WorkingSequenceController::class, 'delete']);
+
+
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
+// Route::get('/user', [UserController::class, 'index']);
+Route::post('/user/masteru', [UserController::class, 'masteru'])->name('user.masteru');
+Route::put('/user/{id}',[UserController::class, 'update']);
+Route::delete('/user/{id}', [UserController::class, 'delete']);
 
 
 Route::get('/working_sequences/export-excel', [WorkingSequenceController::class, 'exportExcel'])->name('working_sequences.exportExcel');
@@ -47,3 +55,7 @@ Route::get('/working_sequences/export-pdf', [WorkingSequenceController::class, '
 
 Route::get('/projects/export-excel', [ProjectController::class, 'exportExcel'])->name('projects.exportExcel');
 Route::get('/projects/export-pdf', [ProjectController::class, 'exportPdf'])->name('projects.exportPdf');
+
+
+Route::get('/user/export-excel', [UserController::class, 'exportExcel'])->name('user.exportExcel');
+Route::get('/user/export-pdf', [UserController::class, 'exportPdf'])->name('user.exportPdf');

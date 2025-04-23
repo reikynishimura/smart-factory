@@ -95,7 +95,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="person_required">Person Required</label>
-                                                        <input type="text" name="person_required" id="person_required" class="form-control" value="{{ $sequence->person_required }}" required>
+                                                        <input type="text" name="person_required" id="person_required" class="form-control" value="{{ $sequence->person_required }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="multiwi_id">Multi WI</label>
@@ -169,7 +169,7 @@
                         </div>
                         <div class="form-group">
                             <label for="person_required">Person Required</label>
-                            <input type="text" name="person_required" id="person_required" class="form-control" required>
+                            <input type="number" name="person_required" class="form-control" placeholder="(optional)">
                         </div>
                         <div class="form-group">
                             <label for="multiwi_id">Multi WI</label>

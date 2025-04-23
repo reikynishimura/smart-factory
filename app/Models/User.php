@@ -15,6 +15,9 @@ class User extends Authenticatable
         'email',
         'password',
         'nip',
+        'plant_id',
+        'role_id',
+        'id_cards',
     ];
 
     protected $hidden = [
@@ -26,5 +29,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed', // otomatis hashing password
     ];
+
+    protected $table = 'users';
+
+    public function plant()
+    {
+        return $this->belongsTo(Plant::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
 

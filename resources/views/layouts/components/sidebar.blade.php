@@ -20,6 +20,11 @@
             "path" => "working_sequences",
             "icon" => "fas fa-cogs",
         ],
+        (object) [
+            "title" => "User",
+            "path" => "user",
+            "icon" => "fas fa-id-badge",
+        ],
     ];
 @endphp
 

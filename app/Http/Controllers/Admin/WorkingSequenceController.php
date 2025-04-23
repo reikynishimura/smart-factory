@@ -32,7 +32,7 @@ class WorkingSequenceController extends Controller
     {
         $validated = $request->validate([
             "working_sequence_code" => "required",
-            "person_required" => "required",
+            "person_required" => "nullable|integer",
             "multiwi_id" => "required",
             "process_code" => "required",
             "process_name" => "required",
@@ -66,7 +66,7 @@ class WorkingSequenceController extends Controller
     {
         $validated = $request->validate([
             "working_sequence_code" => "required",
-            "person_required" => "required",
+            "person_required" => "nullable|integer",
             "multiwi_id" => "required",
             "process_code" => "required",
             "process_name" => "required",

@@ -9,12 +9,12 @@ class WorkingSequenceSeeder extends Seeder
 {
     public function run()
     {
-        // DB::table('working_sequences')->truncate();
+        DB::table('working_sequences')->truncate();
 
         DB::table('working_sequences')->insert([
             [
                 'working_sequence_code' => 'SW1-LV', 
-                'person_required' => 1,
+                'person_required' => '1',
                 'multiwi_id' => 2,
                 'process_code' => 'LV',
                 'process_name' => 'ROLL LEVELLER', 
